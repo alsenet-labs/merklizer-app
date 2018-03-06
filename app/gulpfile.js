@@ -25,6 +25,7 @@ var runSequence = require('run-sequence');
 var merge = require('merge-stream');
 var cordova=require('cordova-lib').cordova;
 var log=require('fancy-log');
+var streamFromPromise=require('stream-from-promise');
 
 gulp.task('copy', function () {
    var streams=[];
@@ -44,26 +45,34 @@ gulp.task('watch', function(){
    return gulp.watch("./merklizer/dist/**", ['copy']);
 });
 
-gulp.task('default', function() {
-  return runSequence(
-    'copy',
-    'dist'
-  )
-});
-
-gulp.task('dist', function(){
-  cordova.build({
+gulp.task('build', function(){
+  return streamFromPromise(cordova.build({
     platforms: ['android'],
     options: {
         argv: ['--release', '--gradleArg=--no-daemon']
     }
-  }).then(log).catch(log);
+  }).catch(log))
 });
       
 gulp.task('run', function(){
-  cordova.run({
+  return streamFromPromise(cordova.run({
     options: {
       argv: ['android']
     }
-  }).then(log).catch(log);
+  }).catch(log));
 });
+
+gulp.task('dist', function() {
+  return runSequence(
+    'copy',
+    'build'
+  )
+});
+
+gulp.task('default', function() {
+  return runSequence(
+    'copy',
+    'run'
+  )
+});
+
