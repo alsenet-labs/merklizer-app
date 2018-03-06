@@ -28,12 +28,12 @@ var log=require('fancy-log');
 
 gulp.task('copy', function () {
    var streams=[];
-   streams.push(gulp.src('./merklizer/dist/js/index.min.*')
-   .pipe(gulp.dest('./cordova/www/js/')));
-   streams.push(gulp.src('./merklizer/dist/css/bundle.css')
-   .pipe(gulp.dest('./cordova/www/css/')));
-   streams.push(gulp.src('./merklizer/dist/views/*')
-   .pipe(gulp.dest('./cordova/www/views/')));
+   streams.push(gulp.src('../merklizer/dist/js/index.min.*')
+   .pipe(gulp.dest('./www/js/')));
+   streams.push(gulp.src('../merklizer/dist/css/bundle.css')
+   .pipe(gulp.dest('./www/css/')));
+   streams.push(gulp.src('../merklizer/dist/views/*')
+   .pipe(gulp.dest('./www/views/')));
    return merge.apply(null,streams)
   .on('end', function(){log('Done!')})
   .on('error', function(err){log(err)});
@@ -60,5 +60,10 @@ gulp.task('dist', function(){
   }).then(log).catch(log);
 });
       
-
-
+gulp.task('run', function(){
+  cordova.run({
+    options: {
+      argv: ['android']
+    }
+  }).then(log).catch(log);
+});
