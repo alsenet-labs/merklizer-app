@@ -71,7 +71,7 @@ gulp.task('dist', function() {
 
 gulp.task('default', function() {
   return runSequence(
-    'copy',
+    'dist',
     'run'
   )
 });
