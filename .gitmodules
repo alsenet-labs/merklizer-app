@@ -1,4 +1,4 @@
 [submodule "merklizer"]
 	path = merklizer
   url = https://github.com/alsenet-labs/merklizer
-  branch = merklizer-app
+	branch = cordova-plugin-qrscanner
