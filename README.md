@@ -55,3 +55,7 @@ Uninstall the conflicting version - directly from the phone, or with adb:
 adb uninstall com.alsenet.merklizer
 ```
 
+### Chrome remote device inspector window is blank (cannot use debugger)
+You need to upgrade up to the latest Android SDK and to the latest stable Chrome/Chromium version.
+For the latter maybe you need to upgrade to the latest version of your operating system.
+
