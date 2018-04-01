@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-controller="MainCtrl">
     <head>
         <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -50,8 +50,7 @@
       return;
     }
     console.log("bootstrapping angularjs");
-    var domElement = document.querySelector('body');
-    angular.bootstrap(domElement, ['merkleApp']);
+    angular.bootstrap(document, ['merkleApp']);
   }
 
   if (document.URL.match(/https?:\/\//)) {
