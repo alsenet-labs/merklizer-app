@@ -22,13 +22,18 @@ Mobile app for Merklizer
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+## Development
+You need to install (or to upgrade to) the latest Android SDK (eg via Android Studio).
+
+You must also install the latest stable Chromium or Chrome version, or you may not be able to use the remote device inspector.
+
 ## Build and test
 
 ```
 git clone --recursive https://github.com/alsenet-labs/merklizer-app
 cd merklizer-app/merklizer
 yarn
-gulp build
+gulp build # use build-ugly for prod
 gulp dist
 cd ../app
 yarn
