@@ -34,7 +34,6 @@ git clone --recursive https://github.com/alsenet-labs/merklizer-app
 cd merklizer-app/merklizer
 yarn
 gulp build # use build-ugly for prod
-gulp dist
 cd ../app
 yarn
 cordova platform add android
