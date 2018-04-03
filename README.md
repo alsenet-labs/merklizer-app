@@ -1,4 +1,6 @@
-# merklizer-app
+# THIS PROJECT IS NOW OBSOLETE, IT HAS BEEN MERGED WITH https://github.com/alsenet-labs/merklizer
+
+## merklizer-app
 Mobile app for Merklizer
 
 ## Copyright
